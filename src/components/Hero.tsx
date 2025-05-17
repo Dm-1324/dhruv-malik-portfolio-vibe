@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16 pb-32">
+    <section id="home" className="min-h-screen flex items-center pt-16 pb-24">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <p className="text-theme-400 mb-2 animate-slide-in-left opacity-0" style={{ animationDelay: '0.1s' }}>
@@ -13,7 +13,7 @@ const Hero = () => {
             Dhruv Malik
           </h1>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading text-foreground/70 mb-8 animate-slide-in-left opacity-0" style={{ animationDelay: '0.5s' }}>
-            Software Developer <span className="highlight-text">from Hyderabad</span>
+            Software Developer
           </h2>
           <p className="text-lg text-foreground/70 max-w-2xl mb-10 animate-slide-in-left opacity-0" style={{ animationDelay: '0.7s' }}>
             I build exceptional digital experiences with clean, efficient code. 

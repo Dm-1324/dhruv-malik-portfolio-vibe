@@ -62,7 +62,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-20 bg-secondary/30">
+    <section id="skills" className="py-20 bg-gradient-to-b from-secondary/20 to-card/30">
       <div className="container mx-auto px-4" ref={sectionRef}>
         <h2 className="section-heading skill-animate opacity-0">Skills</h2>
         
@@ -70,7 +70,7 @@ const Skills = () => {
           {skillsData.map((category, index) => (
             <div 
               key={index}
-              className="skill-animate opacity-0 bg-card p-6 rounded-lg shadow-md"
+              className="skill-animate opacity-0 bg-gradient-to-br from-card to-secondary/20 p-6 rounded-lg border border-border/50 shadow-md hover:shadow-theme-500/5 transition-shadow"
             >
               <h3 className="text-xl font-heading font-semibold mb-4 text-theme-400">
                 {category.name}
@@ -80,7 +80,7 @@ const Skills = () => {
                 {category.skills.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 bg-secondary rounded-full text-sm"
+                    className="px-3 py-1 bg-secondary/50 hover:bg-theme-500/20 transition-colors duration-300 rounded-full text-sm"
                   >
                     {skill}
                   </span>

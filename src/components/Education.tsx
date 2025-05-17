@@ -28,7 +28,12 @@ const Education = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
+            const elements = entry.target.querySelectorAll('.edu-animate');
+            elements.forEach((el, i) => {
+              setTimeout(() => {
+                (el as HTMLElement).classList.add('animate-fade-in');
+              }, i * 100);
+            });
             observer.unobserve(entry.target);
           }
         });
@@ -48,14 +53,17 @@ const Education = () => {
   }, []);
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-gradient-to-b from-card/30 to-background">
       <div className="container mx-auto px-4" ref={sectionRef}>
-        <h2 className="section-heading opacity-0">Education</h2>
+        <h2 className="section-heading edu-animate opacity-0">Education</h2>
         
-        <div className="mt-12 max-w-3xl mx-auto opacity-0">
+        <div className="mt-12 max-w-3xl mx-auto">
           <div className="space-y-8">
             {educationData.map((item, index) => (
-              <div key={index} className="bg-card p-6 rounded-lg border-l-4 border-theme-500">
+              <div 
+                key={index} 
+                className="edu-animate opacity-0 bg-gradient-to-r from-card to-secondary/30 p-6 rounded-lg border-l-4 border-theme-500"
+              >
                 <h3 className="text-xl font-heading font-semibold mb-1">
                   {item.degree}
                 </h3>

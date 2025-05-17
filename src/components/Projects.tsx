@@ -1,13 +1,11 @@
 
 import { useEffect, useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
 
 type Project = {
   title: string;
   description: string;
   techStack: string[];
   achievement?: string;
-  demoLink?: string;
 };
 
 const projectsData: Project[] = [
@@ -20,8 +18,7 @@ const projectsData: Project[] = [
   {
     title: 'Real-time Chat App',
     description: 'A responsive web application that enables secure login and real-time messaging between users.',
-    techStack: ['React.js', 'Socket.io', 'Node.js', 'Express'],
-    demoLink: '#'
+    techStack: ['React.js', 'Socket.io', 'Node.js', 'Express']
   },
   {
     title: 'UI/UX Improvements',
@@ -64,7 +61,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 bg-gradient-to-b from-background to-card/30">
       <div className="container mx-auto px-4" ref={sectionRef}>
         <h2 className="section-heading project-animate opacity-0">Projects</h2>
         
@@ -72,9 +69,9 @@ const Projects = () => {
           {projectsData.map((project, index) => (
             <div 
               key={index}
-              className="project-animate opacity-0 animated-card bg-card border border-border rounded-lg overflow-hidden"
+              className="project-animate opacity-0 animated-card bg-gradient-to-br from-card to-secondary/40 border border-border rounded-lg overflow-hidden"
             >
-              <div className="h-48 bg-secondary/20 flex items-center justify-center">
+              <div className="h-48 bg-gradient-to-br from-theme-600/20 to-theme-400/5 flex items-center justify-center">
                 <div className="text-4xl text-theme-400 opacity-30">
                   {/* Placeholder for project image */}
                   {project.title.charAt(0)}
@@ -95,7 +92,7 @@ const Projects = () => {
                   </p>
                 )}
                 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2">
                   {project.techStack.map((tech, i) => (
                     <span 
                       key={i}
@@ -105,15 +102,6 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                
-                {project.demoLink && (
-                  <a 
-                    href={project.demoLink}
-                    className="inline-flex items-center text-theme-400 hover:text-theme-500 transition-colors"
-                  >
-                    View Project <ArrowRight size={16} className="ml-1" />
-                  </a>
-                )}
               </div>
             </div>
           ))}

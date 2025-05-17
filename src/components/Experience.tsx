@@ -50,7 +50,12 @@ const Experience = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
+            const elements = entry.target.querySelectorAll('.experience-animate');
+            elements.forEach((el, i) => {
+              setTimeout(() => {
+                (el as HTMLElement).classList.add('animate-fade-in');
+              }, i * 100);
+            });
             observer.unobserve(entry.target);
           }
         });
@@ -70,14 +75,14 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-20 bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-4" ref={sectionRef}>
-        <h2 className="section-heading opacity-0">Work Experience</h2>
+        <h2 className="section-heading experience-animate opacity-0">Work Experience</h2>
         
-        <div className="mt-12 max-w-4xl mx-auto opacity-0">
+        <div className="mt-12 max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row gap-4">
             {/* Tab Buttons */}
-            <div className="flex md:flex-col overflow-x-auto md:overflow-visible mb-6 md:mb-0 md:w-48 md:border-l md:border-foreground/20">
+            <div className="flex md:flex-col overflow-x-auto md:overflow-visible mb-6 md:mb-0 md:w-48 md:border-l md:border-foreground/20 experience-animate opacity-0">
               {experienceData.map((item, index) => (
                 <button
                   key={index}
@@ -94,7 +99,7 @@ const Experience = () => {
             </div>
             
             {/* Tab Content */}
-            <div className="flex-1 pl-0 md:pl-6">
+            <div className="flex-1 pl-0 md:pl-6 experience-animate opacity-0">
               {experienceData.map((item, index) => (
                 <div
                   key={index}

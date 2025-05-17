@@ -6,7 +6,7 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center pt-16 pb-24">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <p className="text-theme-400 mb-2 animate-slide-in-left opacity-0" style={{ animationDelay: '0.1s' }}>
+          <p className="text-primary mb-2 animate-slide-in-left opacity-0" style={{ animationDelay: '0.1s' }}>
             Hello, I'm
           </p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 animate-slide-in-left opacity-0" style={{ animationDelay: '0.3s' }}>
@@ -24,7 +24,7 @@ const Hero = () => {
             <a href="#projects" className="btn-primary">
               View my work <ArrowRight size={18} />
             </a>
-            <a href="#contact" className="px-6 py-3 border border-theme-500 text-theme-400 rounded-md hover:bg-theme-500/10 transition-all duration-300">
+            <a href="#contact" className="px-6 py-3 border border-primary text-primary rounded-md hover:bg-primary/10 transition-all duration-300">
               Contact me
             </a>
           </div>

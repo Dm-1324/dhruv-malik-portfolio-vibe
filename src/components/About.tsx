@@ -1,71 +1,64 @@
 
-import { useEffect, useRef } from 'react';
+import { User, Code, Target } from 'lucide-react';
 
 const About = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    
-    const childElements = sectionRef.current?.querySelectorAll('.animate-on-scroll');
-    childElements?.forEach((el) => observer.observe(el));
-    
-    return () => {
-      childElements?.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
-
   return (
-    <section id="about" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4" ref={sectionRef}>
-        <h2 className="section-heading animate-on-scroll opacity-0">About Me</h2>
-        
-        <div className="grid md:grid-cols-5 gap-10 mt-12">
-          <div className="md:col-span-3">
-            <p className="text-lg mb-6 animate-on-scroll opacity-0">
-              I am a <span className="highlight-text">detail-oriented software developer</span> with 
-              a passion for building clean, efficient applications that solve real-world problems.
-            </p>
-            
-            <ul className="space-y-4 text-foreground/80 animate-on-scroll opacity-0">
-              <li className="flex items-start">
-                <span className="text-theme-500 mr-2">▹</span>
-                <span>Strong foundation in Object-Oriented Programming, Python, Java, and MySQL.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-theme-500 mr-2">▹</span>
-                <span>Skilled in responsive frontend development using React.js, Next.js, and TailwindCSS.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-theme-500 mr-2">▹</span>
-                <span>Passionate about solving real-world problems with clean, efficient code.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-theme-500 mr-2">▹</span>
-                <span>Experienced in building robust applications with modern technologies.</span>
-              </li>
-            </ul>
-          </div>
+    <section id="about" className="py-24 bg-gradient-to-b from-background to-secondary/5">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="section-heading text-center animate-fade-in">About Me</h2>
           
-          <div className="md:col-span-2 animate-on-scroll opacity-0">
-            <div className="relative w-full aspect-square max-w-xs mx-auto md:ml-auto">
-              <div className="absolute inset-0 border-2 border-theme-500 rounded-md transform translate-x-4 translate-y-4 z-0"></div>
-              <div className="absolute inset-0 bg-theme-500/20 rounded-md z-10"></div>
-              <div className="relative z-20 w-full h-full rounded-md overflow-hidden bg-gray-700">
-                {/* Placeholder for profile image */}
-                <div className="w-full h-full flex items-center justify-center text-center p-4 text-foreground/50">
-                  <p>Profile Image</p>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Profile Image */}
+            <div className="flex justify-center animate-slide-in-left">
+              <div className="relative">
+                <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-theme-500/20">
+                  <img 
+                    src="/lovable-uploads/745f1fdd-286a-4c35-aa23-b42fe28295bf.png" 
+                    alt="Dhruv Malik - Software Developer"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-theme-500 rounded-full flex items-center justify-center shadow-lg">
+                  <Code className="text-white" size={32} />
+                </div>
+              </div>
+            </div>
+
+            {/* About Content */}
+            <div className="space-y-6 animate-slide-in-right">
+              <div className="space-y-4">
+                <p className="text-lg text-foreground/80 leading-relaxed">
+                  I'm a <span className="highlight-text font-semibold">detail-oriented software developer</span> with a strong foundation in modern web technologies and programming languages.
+                </p>
+                
+                <p className="text-foreground/70 leading-relaxed">
+                  With expertise in <span className="highlight-text">Python, Java, JavaScript, React.js, and Next.js</span>, I'm passionate about solving real-world problems with clean, efficient code. I have hands-on experience in building responsive frontend applications and working with various frameworks and databases.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                <div className="animated-card bg-card/50 p-4 rounded-lg border border-border/50">
+                  <div className="flex items-center gap-3 mb-2">
+                    <User className="text-theme-500" size={20} />
+                    <h3 className="font-semibold">Frontend Expert</h3>
+                  </div>
+                  <p className="text-sm text-foreground/70">Skilled in responsive design using React.js, Next.js, and TailwindCSS</p>
+                </div>
+                
+                <div className="animated-card bg-card/50 p-4 rounded-lg border border-border/50">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Target className="text-theme-500" size={20} />
+                    <h3 className="font-semibold">Problem Solver</h3>
+                  </div>
+                  <p className="text-sm text-foreground/70">Strong in OOP, algorithms, and building scalable solutions</p>
+                </div>
+              </div>
+
+              <div className="pt-4">
+                <a href="#contact" className="btn-primary">
+                  Let's Connect
+                </a>
               </div>
             </div>
           </div>

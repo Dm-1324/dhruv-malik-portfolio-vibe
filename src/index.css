@@ -7,33 +7,33 @@
 
 @layer base {
   :root {
-    --background: 239 18% 12%;
-    --foreground: 24 9% 73%;
+    --background: 210 34% 13%;
+    --foreground: 210 20% 98%;
 
-    --card: 239 18% 15%;
-    --card-foreground: 24 9% 73%;
+    --card: 210 34% 15%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 239 18% 12%;
-    --popover-foreground: 24 9% 73%;
+    --popover: 210 34% 13%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 191 91% 28%;
+    --primary: 196 80% 43%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 239 18% 20%;
-    --secondary-foreground: 24 9% 73%;
+    --secondary: 210 34% 20%;
+    --secondary-foreground: 210 20% 98%;
 
-    --muted: 239 18% 20%;
-    --muted-foreground: 24 9% 60%;
+    --muted: 210 34% 20%;
+    --muted-foreground: 210 10% 70%;
 
-    --accent: 239 18% 20%;
-    --accent-foreground: 24 9% 73%;
+    --accent: 210 34% 20%;
+    --accent-foreground: 210 20% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 24 9% 73%;
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 239 18% 22%;
-    --input: 239 18% 22%;
-    --ring: 191 91% 28%;
+    --border: 210 34% 22%;
+    --input: 210 34% 22%;
+    --ring: 196 80% 43%;
 
     --radius: 0.5rem;
 
@@ -62,26 +62,26 @@
 
   .section-heading::after {
     content: "";
-    @apply absolute bottom-0 left-0 h-1 w-16 bg-primary rounded-full;
+    @apply absolute bottom-0 left-0 h-1 w-16 bg-theme-500 rounded-full;
   }
 }
 
 @layer components {
   .highlight-text {
-    @apply text-primary;
+    @apply text-theme-500;
   }
   
   .btn-primary {
-    @apply px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/80 transition-all duration-300 inline-flex items-center gap-2;
+    @apply px-6 py-3 bg-theme-500 text-white rounded-md hover:bg-theme-600 transition-all duration-300 inline-flex items-center gap-2;
   }
 
   .nav-link {
-    @apply relative text-foreground/80 hover:text-primary transition-colors duration-300 py-2;
+    @apply relative text-foreground/80 hover:text-theme-400 transition-colors duration-300 py-2;
   }
 
   .nav-link::after {
     content: "";
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-theme-500 transition-all duration-300;
   }
 
   .nav-link:hover::after {

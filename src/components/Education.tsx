@@ -10,7 +10,7 @@ type Education = {
 const educationData: Education[] = [
   {
     degree: 'B.Tech Computer Science Engineering',
-    institution: 'ICFAI Tech University, Hyderabad',
+    institution: 'ICFAI Tech (IFHE University), Hyderabad',
     period: '2021 - 2025'
   },
   {

@@ -79,5 +79,18 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
-  }
+  },
+  "description": "**URL**: https://lovable.dev/projects/41e29a61-dc5f-4ec4-b637-abc71856c509",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dm-1324/dhruv-malik-portfolio-vibe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dm-1324/dhruv-malik-portfolio-vibe/issues"
+  },
+  "homepage": "https://github.com/Dm-1324/dhruv-malik-portfolio-vibe#readme"
 }

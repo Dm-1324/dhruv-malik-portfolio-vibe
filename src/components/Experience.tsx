@@ -85,21 +85,21 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="py-28 bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-6" ref={sectionRef}>
-        <h2 className="section-heading experience-animate opacity-0 mb-16">Experience</h2>
+    <section id="experience" className="py-20 bg-gradient-to-b from-background to-muted/20">
+      <div className="container mx-auto px-4" ref={sectionRef}>
+        <h2 className="section-heading experience-animate opacity-0">Experience</h2>
         
-        <div className="mt-16 max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-8">
+        <div className="mt-12 max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-4">
             {/* Tab Buttons */}
-            <div className="flex md:flex-col overflow-x-auto md:overflow-visible mb-8 md:mb-0 md:w-64 md:border-l-2 md:border-border experience-animate opacity-0">
+            <div className="flex md:flex-col overflow-x-auto md:overflow-visible mb-6 md:mb-0 md:w-56 md:border-l-2 md:border-border experience-animate opacity-0">
               {experienceData.map((item, index) => (
                 <button
                   key={index}
                   onClick={() => setActiveTab(index)}
-                  className={`px-6 py-4 text-left transition-all whitespace-nowrap font-medium ${
+                  className={`px-4 py-3 text-left transition-all whitespace-nowrap font-medium ${
                     activeTab === index 
-                      ? 'text-theme-400 bg-muted/30 md:border-l-2 md:border-theme-500 md:-ml-[2px]' 
+                      ? 'text-theme-500 bg-muted/30 md:border-l-2 md:border-theme-500 md:-ml-[2px]' 
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/20'
                   }`}
                 >
@@ -109,7 +109,7 @@ const Experience = () => {
             </div>
             
             {/* Tab Content */}
-            <div className="flex-1 pl-0 md:pl-8 experience-animate opacity-0">
+            <div className="flex-1 pl-0 md:pl-6 experience-animate opacity-0">
               {experienceData.map((item, index) => (
                 <div
                   key={index}
@@ -117,17 +117,17 @@ const Experience = () => {
                     activeTab === index ? 'opacity-100' : 'hidden opacity-0'
                   }`}
                 >
-                  <h3 className="text-xl font-heading font-semibold text-foreground mb-2 leading-relaxed">
+                  <h3 className="text-xl font-heading font-semibold text-foreground">
                     {item.position}{' '}
-                    <span className="text-theme-400">@ {item.company}</span>
+                    <span className="text-theme-500">@ {item.company}</span>
                   </h3>
-                  <p className="text-muted-foreground mb-6">{item.period}</p>
+                  <p className="text-muted-foreground mb-4">{item.period}</p>
                   
-                  <ul className="space-y-4">
+                  <ul className="space-y-3">
                     {item.description.map((point, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="text-theme-400 mr-3 mt-1 text-lg">▹</span>
-                        <span className="text-foreground/90 leading-loose">{point}</span>
+                        <span className="text-theme-500 mr-2 mt-1 text-lg">▹</span>
+                        <span className="text-foreground/90">{point}</span>
                       </li>
                     ))}
                   </ul>

@@ -58,21 +58,21 @@ const Education = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
-      <div className="container mx-auto px-4" ref={sectionRef}>
-        <h2 className="section-heading edu-animate opacity-0">Education & Certifications</h2>
+    <section className="py-28 bg-gradient-to-b from-muted/20 to-background">
+      <div className="container mx-auto px-6" ref={sectionRef}>
+        <h2 className="section-heading edu-animate opacity-0 mb-16">Education & Certifications</h2>
         
-        <div className="mt-12 max-w-3xl mx-auto">
-          <div className="space-y-6">
+        <div className="mt-16 max-w-3xl mx-auto">
+          <div className="space-y-8">
             {educationData.map((item, index) => (
               <div 
                 key={index} 
-                className="edu-animate opacity-0 bg-card p-6 rounded-lg border-l-4 border-theme-500 hover:shadow-lg transition-shadow"
+                className="edu-animate opacity-0 bg-card p-8 rounded-lg border-l-4 border-theme-500 hover:shadow-lg transition-shadow"
               >
-                <h3 className="text-xl font-heading font-semibold mb-1 text-foreground">
+                <h3 className="text-xl font-heading font-semibold mb-3 text-foreground leading-relaxed">
                   {item.degree}
                 </h3>
-                <p className="text-theme-500 mb-2 font-medium">{item.institution}</p>
+                <p className="text-theme-400 mb-3 font-medium">{item.institution}</p>
                 <p className="text-muted-foreground text-sm">{item.period}</p>
               </div>
             ))}

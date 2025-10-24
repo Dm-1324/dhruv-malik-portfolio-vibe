@@ -7,36 +7,43 @@
 
 @layer base {
   :root {
-    --background: 210 34% 13%;
-    --foreground: 210 20% 98%;
-
-    --card: 210 34% 15%;
-    --card-foreground: 210 20% 98%;
-
-    --popover: 210 34% 13%;
-    --popover-foreground: 210 20% 98%;
-
-    --primary: 196 80% 43%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 210 34% 20%;
-    --secondary-foreground: 210 20% 98%;
-
-    --muted: 210 34% 20%;
-    --muted-foreground: 210 10% 70%;
-
-    --accent: 210 34% 20%;
-    --accent-foreground: 210 20% 98%;
-
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 349 56% 27%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 78%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
-
-    --border: 210 34% 22%;
-    --input: 210 34% 22%;
-    --ring: 196 80% 43%;
-
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 349 56% 27%;
     --radius: 0.5rem;
-
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    
+    --theme-50: 349 56% 97%;
+    --theme-100: 349 56% 92%;
+    --theme-200: 349 56% 82%;
+    --theme-300: 349 56% 72%;
+    --theme-400: 349 56% 50%;
+    --theme-500: 349 56% 27%;
+    --theme-600: 349 56% 22%;
+    --theme-700: 349 56% 17%;
+    --theme-800: 349 56% 12%;
+    --theme-900: 349 56% 7%;
+    
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -44,7 +51,40 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 349 56% 27%;
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 349 56% 35%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 78%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 349 56% 35%;
+    
+    --theme-50: 349 56% 7%;
+    --theme-100: 349 56% 12%;
+    --theme-200: 349 56% 17%;
+    --theme-300: 349 56% 22%;
+    --theme-400: 349 56% 50%;
+    --theme-500: 349 56% 35%;
+    --theme-600: 349 56% 45%;
+    --theme-700: 349 56% 72%;
+    --theme-800: 349 56% 82%;
+    --theme-900: 349 56% 92%;
   }
 
   * {
@@ -72,11 +112,11 @@
   }
   
   .btn-primary {
-    @apply px-6 py-3 bg-theme-500 text-white rounded-md hover:bg-theme-600 transition-all duration-300 inline-flex items-center gap-2;
+    @apply px-6 py-3 bg-theme-500 text-primary-foreground rounded-md hover:bg-theme-600 transition-all duration-300 inline-flex items-center gap-2 font-medium shadow-md hover:shadow-lg;
   }
 
   .nav-link {
-    @apply relative text-foreground/80 hover:text-theme-400 transition-colors duration-300 py-2;
+    @apply relative text-muted-foreground hover:text-theme-500 transition-colors duration-300 py-2 font-medium;
   }
 
   .nav-link::after {
@@ -89,6 +129,6 @@
   }
 
   .animated-card {
-    @apply transform transition-all duration-300 hover:-translate-y-2 hover:shadow-lg;
+    @apply transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
   }
 }

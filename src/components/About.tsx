@@ -28,30 +28,42 @@ const About = () => {
             {/* About Content */}
             <div className="space-y-6 animate-slide-in-right">
               <div className="space-y-4">
-                <p className="text-lg text-foreground/80 leading-relaxed">
-                  I'm a <span className="highlight-text font-semibold">detail-oriented software developer</span> with a strong foundation in modern web technologies and programming languages.
+                <p className="text-lg text-foreground leading-relaxed">
+                  I'm a <span className="text-theme-500 font-semibold">passionate Software Developer</span> focused on building clean, scalable, and user-centric web applications that make an impact.
                 </p>
                 
-                <p className="text-foreground/70 leading-relaxed">
-                  With expertise in <span className="highlight-text">Python, Java, JavaScript, React.js, and Next.js</span>, I'm passionate about solving real-world problems with clean, efficient code. I have hands-on experience in building responsive frontend applications and working with various frameworks and databases.
+                <p className="text-muted-foreground leading-relaxed">
+                  Specializing in <span className="text-theme-500 font-medium">frontend development using React.js, Next.js, and TailwindCSS</span>, and expanding expertise into backend technologies like <span className="text-theme-500 font-medium">Java, Spring Boot, and RESTful APIs</span>.
+                </p>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  With a strong foundation in <span className="text-theme-500 font-medium">Python, JavaScript, and MySQL</span>, I transform ideas into intuitive, high-performance web experiences. My goal is to write maintainable, production-ready code while continuously learning and growing as a developer.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-                <div className="animated-card bg-card/50 p-4 rounded-lg border border-border/50">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                <div className="animated-card bg-card p-4 rounded-lg border-2 border-border hover:border-theme-500/50 transition-colors">
                   <div className="flex items-center gap-3 mb-2">
-                    <User className="text-theme-500" size={20} />
-                    <h3 className="font-semibold">Frontend Expert</h3>
+                    <Code className="text-theme-500" size={20} />
+                    <h3 className="font-semibold text-foreground">Full Stack</h3>
                   </div>
-                  <p className="text-sm text-foreground/70">Skilled in responsive design using React.js, Next.js, and TailwindCSS</p>
+                  <p className="text-sm text-muted-foreground">Frontend with React/Next.js, Backend with Java/Spring Boot</p>
                 </div>
                 
-                <div className="animated-card bg-card/50 p-4 rounded-lg border border-border/50">
+                <div className="animated-card bg-card p-4 rounded-lg border-2 border-border hover:border-theme-500/50 transition-colors">
                   <div className="flex items-center gap-3 mb-2">
                     <Target className="text-theme-500" size={20} />
-                    <h3 className="font-semibold">Problem Solver</h3>
+                    <h3 className="font-semibold text-foreground">Problem Solver</h3>
                   </div>
-                  <p className="text-sm text-foreground/70">Strong in OOP, algorithms, and building scalable solutions</p>
+                  <p className="text-sm text-muted-foreground">Strong in OOP, Unit Testing, and scalable solutions</p>
+                </div>
+
+                <div className="animated-card bg-card p-4 rounded-lg border-2 border-border hover:border-theme-500/50 transition-colors">
+                  <div className="flex items-center gap-3 mb-2">
+                    <User className="text-theme-500" size={20} />
+                    <h3 className="font-semibold text-foreground">Clean Code</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Focus on maintainable, production-ready code</p>
                 </div>
               </div>
 

@@ -8,24 +8,24 @@ type SkillCategory = {
 
 const skillsData: SkillCategory[] = [
   {
-    name: 'Languages',
-    skills: ['Python', 'Java', 'JavaScript']
+    name: 'Core Technologies',
+    skills: ['React.js', 'Next.js', 'TailwindCSS', 'Java', 'Spring Boot', 'RESTful APIs', 'Python', 'JavaScript', 'MySQL']
   },
   {
-    name: 'Frameworks',
-    skills: ['React.js', 'Next.js', 'TailwindCSS']
+    name: 'Top Skills',
+    skills: ['Unit Testing', 'Object-Oriented Programming (OOP)', 'Scripting']
   },
   {
-    name: 'Web',
-    skills: ['HTML5', 'CSS3', 'REST APIs', 'Responsive Design']
+    name: 'Frontend Development',
+    skills: ['HTML5', 'CSS3', 'Responsive Design', 'UI/UX Implementation']
   },
   {
-    name: 'Database',
-    skills: ['MySQL']
+    name: 'Backend & Database',
+    skills: ['MySQL', 'Database Design', 'API Development']
   },
   {
     name: 'Soft Skills',
-    skills: ['Problem Solving', 'Critical Thinking', 'Communication']
+    skills: ['Problem Solving', 'Critical Thinking', 'Team Collaboration', 'Communication']
   }
 ];
 
@@ -62,17 +62,17 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-secondary/20 to-card/30">
+    <section id="skills" className="py-20 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-4" ref={sectionRef}>
-        <h2 className="section-heading skill-animate opacity-0">Skills</h2>
+        <h2 className="section-heading skill-animate opacity-0">Skills & Expertise</h2>
         
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillsData.map((category, index) => (
             <div 
               key={index}
-              className="skill-animate opacity-0 bg-gradient-to-br from-card to-secondary/20 p-6 rounded-lg border border-border/50 shadow-md hover:shadow-theme-500/5 transition-shadow"
+              className="skill-animate opacity-0 bg-card p-6 rounded-lg border-2 border-border hover:border-theme-500/50 transition-all duration-300 hover:shadow-lg"
             >
-              <h3 className="text-xl font-heading font-semibold mb-4 text-theme-400">
+              <h3 className="text-xl font-heading font-semibold mb-4 text-theme-500">
                 {category.name}
               </h3>
               
@@ -80,7 +80,7 @@ const Skills = () => {
                 {category.skills.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 bg-secondary/50 hover:bg-theme-500/20 transition-colors duration-300 rounded-full text-sm"
+                    className="px-3 py-1.5 bg-muted hover:bg-theme-500 hover:text-primary-foreground transition-all duration-300 rounded-md text-sm font-medium"
                   >
                     {skill}
                   </span>

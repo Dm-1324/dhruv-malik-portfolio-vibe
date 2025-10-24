@@ -9,14 +9,19 @@ type Education = {
 
 const educationData: Education[] = [
   {
-    degree: 'B.Tech Computer Science Engineering',
-    institution: 'ICFAI Tech (IFHE University), Hyderabad',
-    period: '2021 - 2025'
+    degree: 'Bachelor of Technology - BTech, Computer Science',
+    institution: 'ICFAI Foundation for Higher Education (ICFAI Tech), Hyderabad',
+    period: 'August 2021 - 2025'
   },
   {
-    degree: 'Physics, Chemistry, Mathematics (PCM)',
+    degree: 'Intermediate - Physics, Chemistry, Mathematics (PCM)',
     institution: 'Indus Valley Public School',
-    period: '2019 - 2021'
+    period: 'April 2019 - April 2021'
+  },
+  {
+    degree: 'Web Development Certification',
+    institution: 'Internshala Trainings',
+    period: 'October 2023'
   }
 ];
 
@@ -53,22 +58,22 @@ const Education = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-card/30 to-background">
+    <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
       <div className="container mx-auto px-4" ref={sectionRef}>
-        <h2 className="section-heading edu-animate opacity-0">Education</h2>
+        <h2 className="section-heading edu-animate opacity-0">Education & Certifications</h2>
         
         <div className="mt-12 max-w-3xl mx-auto">
-          <div className="space-y-8">
+          <div className="space-y-6">
             {educationData.map((item, index) => (
               <div 
                 key={index} 
-                className="edu-animate opacity-0 bg-gradient-to-r from-card to-secondary/30 p-6 rounded-lg border-l-4 border-theme-500"
+                className="edu-animate opacity-0 bg-card p-6 rounded-lg border-l-4 border-theme-500 hover:shadow-lg transition-shadow"
               >
-                <h3 className="text-xl font-heading font-semibold mb-1">
+                <h3 className="text-xl font-heading font-semibold mb-1 text-foreground">
                   {item.degree}
                 </h3>
-                <p className="text-theme-400 mb-2">{item.institution}</p>
-                <p className="text-foreground/60 text-sm">{item.period}</p>
+                <p className="text-theme-500 mb-2 font-medium">{item.institution}</p>
+                <p className="text-muted-foreground text-sm">{item.period}</p>
               </div>
             ))}
           </div>

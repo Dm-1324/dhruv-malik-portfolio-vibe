@@ -31,10 +31,10 @@ const Navbar = () => {
   ];
 
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/90 backdrop-blur shadow-md' : 'bg-transparent'}`}>
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-md shadow-lg border-b-2 border-border' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="#home" className="text-2xl font-heading font-bold text-theme-400">
-          <span className="text-white">Dhruv</span> Malik
+        <a href="#home" className="text-2xl font-heading font-bold">
+          <span className="text-foreground">Dhruv</span> <span className="text-theme-500">Malik</span>
         </a>
         
         {/* Desktop Navigation */}
@@ -48,7 +48,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Toggle */}
         <button 
-          className="md:hidden text-foreground"
+          className="md:hidden text-theme-500 hover:text-theme-600 transition-colors"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -57,13 +57,13 @@ const Navbar = () => {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-card p-4 shadow-lg rounded-b-lg animate-fade-in">
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-card border-2 border-border p-6 shadow-xl rounded-b-lg animate-fade-in">
             <nav className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <a 
                   key={link.name} 
                   href={link.href} 
-                  className="nav-link"
+                  className="nav-link text-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}

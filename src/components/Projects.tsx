@@ -61,34 +61,36 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-background to-card/30">
+    <section id="projects" className="py-20 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-4" ref={sectionRef}>
-        <h2 className="section-heading project-animate opacity-0">Projects</h2>
+        <h2 className="section-heading project-animate opacity-0">Featured Projects</h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto text-center mb-12 project-animate opacity-0">
+          A showcase of my work demonstrating expertise in full-stack development, computer vision, and responsive web applications.
+        </p>
         
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsData.map((project, index) => (
             <div 
               key={index}
-              className="project-animate opacity-0 animated-card bg-gradient-to-br from-card to-secondary/40 border border-border rounded-lg overflow-hidden"
+              className="project-animate opacity-0 animated-card bg-card border-2 border-border hover:border-theme-500/50 rounded-lg overflow-hidden group"
             >
-              <div className="h-48 bg-gradient-to-br from-theme-600/20 to-theme-400/5 flex items-center justify-center">
-                <div className="text-4xl text-theme-400 opacity-30">
-                  {/* Placeholder for project image */}
+              <div className="h-48 bg-gradient-to-br from-theme-500/10 to-theme-500/5 flex items-center justify-center border-b-2 border-border group-hover:border-theme-500/50 transition-colors">
+                <div className="text-6xl text-theme-500 opacity-40 font-bold">
                   {project.title.charAt(0)}
                 </div>
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-heading font-semibold mb-2">
+                <h3 className="text-xl font-heading font-semibold mb-3 text-foreground group-hover:text-theme-500 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-foreground/70 mb-4">
+                <p className="text-muted-foreground mb-4 leading-relaxed">
                   {project.description}
                 </p>
                 
                 {project.achievement && (
-                  <p className="text-theme-400 text-sm mb-4">
-                    {project.achievement}
+                  <p className="text-theme-500 text-sm mb-4 font-medium bg-theme-500/5 px-3 py-2 rounded">
+                    ✓ {project.achievement}
                   </p>
                 )}
                 
@@ -96,7 +98,7 @@ const Projects = () => {
                   {project.techStack.map((tech, i) => (
                     <span 
                       key={i}
-                      className="px-2 py-1 bg-secondary/50 rounded text-xs"
+                      className="px-3 py-1 bg-muted rounded-md text-xs font-medium border border-border"
                     >
                       {tech}
                     </span>

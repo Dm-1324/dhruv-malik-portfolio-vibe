@@ -1,94 +1,101 @@
+import { motion } from 'framer-motion';
+import { Code2, Server, Database, Wrench, Users, Layout } from 'lucide-react';
 
-import { useEffect, useRef } from 'react';
-
-type SkillCategory = {
-  name: string;
-  skills: string[];
-};
-
-const skillsData: SkillCategory[] = [
+const skillsData = [
   {
-    name: 'Core Technologies',
-    skills: ['React.js', 'Next.js', 'TailwindCSS', 'Java', 'Spring Boot', 'RESTful APIs', 'Python', 'JavaScript', 'MySQL']
+    icon: Server,
+    name: 'Backend',
+    skills: ['Java (Core + Streams)', 'Spring Boot', 'Spring MVC', 'Spring Framework', 'RESTful APIs', 'Node.js'],
   },
   {
-    name: 'Top Skills',
-    skills: ['Unit Testing', 'Object-Oriented Programming (OOP)', 'Scripting']
+    icon: Database,
+    name: 'Database',
+    skills: ['MySQL', 'Hibernate / JPA', 'SQL', 'Database Optimization'],
   },
   {
-    name: 'Frontend Development',
-    skills: ['HTML5', 'CSS3', 'Responsive Design', 'UI/UX Implementation']
+    icon: Layout,
+    name: 'Frontend',
+    skills: ['React.js', 'Vue.js', 'Next.js', 'TailwindCSS', 'TypeScript', 'JavaScript'],
   },
   {
-    name: 'Backend & Database',
-    skills: ['MySQL', 'Database Design', 'API Development']
+    icon: Wrench,
+    name: 'Engineering',
+    skills: ['Unit Testing', 'Integration Testing', 'OOP', 'Scripting', 'Python'],
   },
   {
+    icon: Code2,
+    name: 'Tooling',
+    skills: ['Git', 'REST APIs', 'Postman', 'Agile / Scrum'],
+  },
+  {
+    icon: Users,
     name: 'Soft Skills',
-    skills: ['Problem Solving', 'Critical Thinking', 'Team Collaboration', 'Communication']
-  }
+    skills: ['Problem Solving', 'Critical Thinking', 'Collaboration', 'Communication'],
+  },
 ];
 
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+};
+const itemAnim = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 const Skills = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const elements = entry.target.querySelectorAll('.skill-animate');
-            elements.forEach((el, i) => {
-              setTimeout(() => {
-                (el as HTMLElement).classList.add('animate-fade-in');
-              }, i * 100);
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-muted/30 to-background">
-      <div className="container mx-auto px-4" ref={sectionRef}>
-        <h2 className="section-heading skill-animate opacity-0">Skills & Expertise</h2>
-        
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillsData.map((category, index) => (
-            <div 
-              key={index}
-              className="skill-animate opacity-0 bg-card p-6 rounded-lg border-2 border-border hover:border-theme-500/50 transition-all duration-300 hover:shadow-lg"
-            >
-              <h3 className="text-xl font-heading font-semibold mb-4 text-theme-500">
-                {category.name}
-              </h3>
-              
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1.5 bg-muted hover:bg-theme-500 hover:text-primary-foreground transition-all duration-300 rounded-md text-sm font-medium"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+    <section id="skills" className="py-32 relative bg-aurora">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mb-16"
+        >
+          <p className="text-primary font-medium mb-3 text-sm tracking-widest uppercase">Skills</p>
+          <h2 className="section-heading">
+            Full-stack toolkit, <span className="gradient-text">backend-first</span>.
+          </h2>
+        </motion.div>
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-50px' }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
+          {skillsData.map((cat, index) => {
+            const Icon = cat.icon;
+            return (
+              <motion.div
+                key={index}
+                variants={itemAnim}
+                whileHover={{ y: -4, scale: 1.01 }}
+                className="glass rounded-2xl p-6 hover:border-primary/60 transition-colors"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+                    <Icon size={18} />
+                  </div>
+                  <h3 className="font-heading font-semibold text-lg">{cat.name}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1.5 rounded-lg bg-muted text-foreground/85 hover:bg-primary hover:text-primary-foreground transition-colors text-xs font-medium"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

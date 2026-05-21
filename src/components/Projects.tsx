@@ -1,5 +1,5 @@
-
-import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 
 type Project = {
   title: string;
@@ -10,102 +10,92 @@ type Project = {
 
 const projectsData: Project[] = [
   {
-    title: 'Vehicle Tracking System',
-    description: 'An advanced vehicle detection and tracking system built using computer vision techniques.',
-    techStack: ['OpenCV', 'Python', 'Haar Classifiers'],
-    achievement: 'Achieved 90% accuracy in varied light conditions'
+    title: 'Spring Boot REST Platform',
+    description:
+      'Enterprise backend with secure RESTful APIs, Hibernate/JPA data layer, and comprehensive test coverage.',
+    techStack: ['Java', 'Spring Boot', 'Spring MVC', 'MySQL', 'JPA'],
+    achievement: '25% reduction in average transaction latency',
   },
   {
     title: 'Real-time Chat App',
-    description: 'A responsive web application that enables secure login and real-time messaging between users.',
-    techStack: ['React.js', 'Socket.io', 'Node.js', 'Express']
+    description:
+      'Responsive web app with secure login flows and live messaging between users over WebSockets.',
+    techStack: ['React.js', 'Socket.io', 'Node.js', 'Express'],
+    achievement: '25% faster authentication flow',
   },
   {
-    title: 'UI/UX Improvements',
-    description: 'Enhanced user interfaces and experience for e-commerce platforms, improving conversion rates.',
-    techStack: ['React.js', 'TailwindCSS', 'JavaScript'],
-    achievement: 'Optimized sites like Picklebasket.in and Numaxups.com'
-  }
+    title: 'Vehicle Tracking System',
+    description:
+      'Computer-vision pipeline for vehicle detection and tracking across varying light conditions.',
+    techStack: ['Python', 'OpenCV', 'Haar Classifiers'],
+    achievement: '90% accuracy across light conditions',
+  },
+  {
+    title: 'Document Text Classifier',
+    description:
+      'ML pipeline for document analysis and automated question generation built at GlobalLogic.',
+    techStack: ['Python', 'Scikit-learn', 'NLP'],
+    achievement: '+15% classification accuracy',
+  },
 ];
 
 const Projects = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const elements = entry.target.querySelectorAll('.project-animate');
-            elements.forEach((el, i) => {
-              setTimeout(() => {
-                (el as HTMLElement).classList.add('animate-fade-in');
-              }, i * 200);
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-background to-muted/30">
-      <div className="container mx-auto px-4" ref={sectionRef}>
-        <h2 className="section-heading project-animate opacity-0">Featured Projects</h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto text-center mb-12 project-animate opacity-0">
-          A showcase of my work demonstrating expertise in full-stack development, computer vision, and responsive web applications.
-        </p>
-        
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="projects" className="py-32 relative">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mb-16"
+        >
+          <p className="text-primary font-medium mb-3 text-sm tracking-widest uppercase">Projects</p>
+          <h2 className="section-heading">
+            Selected <span className="gradient-text">work</span>.
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {projectsData.map((project, index) => (
-            <div 
+            <motion.div
               key={index}
-              className="project-animate opacity-0 animated-card bg-card border-2 border-border hover:border-theme-500/50 rounded-lg overflow-hidden group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              whileHover={{ y: -6 }}
+              className="group glass rounded-2xl p-7 hover:border-primary/60 transition-all hover:glow-shadow"
             >
-              <div className="h-48 bg-gradient-to-br from-theme-500/10 to-theme-500/5 flex items-center justify-center border-b-2 border-border group-hover:border-theme-500/50 transition-colors">
-                <div className="text-6xl text-theme-500 opacity-40 font-bold">
-                  {project.title.charAt(0)}
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-heading font-semibold mb-3 text-foreground group-hover:text-theme-500 transition-colors">
+              <div className="flex items-start justify-between mb-4">
+                <h3 className="text-xl font-heading font-semibold group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                
-                {project.achievement && (
-                  <p className="text-theme-500 text-sm mb-4 font-medium bg-theme-500/5 px-3 py-2 rounded">
-                    ✓ {project.achievement}
-                  </p>
-                )}
-                
-                <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech, i) => (
-                    <span 
-                      key={i}
-                      className="px-3 py-1 bg-muted rounded-md text-xs font-medium border border-border"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                <ArrowUpRight
+                  className="text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                  size={20}
+                />
               </div>
-            </div>
+
+              <p className="text-muted-foreground leading-relaxed mb-4">{project.description}</p>
+
+              {project.achievement && (
+                <p className="text-primary text-sm mb-5 font-medium">
+                  ✓ {project.achievement}
+                </p>
+              )}
+
+              <div className="flex flex-wrap gap-2">
+                {project.techStack.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="px-2.5 py-1 bg-muted rounded-md text-xs font-medium text-foreground/80"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

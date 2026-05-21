@@ -33,7 +33,6 @@ const Navbar = () => {
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <a href="#home" className="text-xl font-heading font-bold tracking-tight">
           <span className="text-foreground">Dhruv</span>
-          <span className="gradient-text">.dev</span>
         </a>
 
         <nav className="hidden md:flex items-center space-x-8">

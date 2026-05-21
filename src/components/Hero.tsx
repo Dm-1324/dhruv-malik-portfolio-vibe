@@ -1,35 +1,87 @@
-
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16 pb-24 bg-gradient-to-br from-background via-background to-muted/20">
-      <div className="container mx-auto px-4">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-24 pb-24 overflow-hidden bg-aurora"
+    >
+      {/* Subtle grid overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.04] dark:opacity-[0.07] pointer-events-none"
+        style={{
+          backgroundImage:
+            'linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+        }}
+      />
+
+      <div className="container mx-auto px-6 relative">
         <div className="max-w-4xl mx-auto">
-          <p className="text-theme-500 mb-2 animate-slide-in-left opacity-0 font-medium" style={{ animationDelay: '0.1s' }}>
-            Hello, I'm
-          </p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 animate-slide-in-left opacity-0 text-foreground" style={{ animationDelay: '0.3s' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm text-muted-foreground mb-8"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            Available for opportunities
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold mb-6 tracking-tight leading-[1.05]"
+          >
             Dhruv Malik
-          </h1>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading text-muted-foreground mb-8 animate-slide-in-left opacity-0" style={{ animationDelay: '0.5s' }}>
-            Software Developer | Frontend (React, Next.js) & Backend (Java, Spring Boot)
-          </h2>
-          <h3 className="text-xl md:text-2xl text-theme-500 mb-6 animate-slide-in-left opacity-0 font-semibold" style={{ animationDelay: '0.6s' }}>
-            Building Clean & Efficient Web Apps
-          </h3>
-          <p className="text-lg text-muted-foreground max-w-2xl mb-10 animate-slide-in-left opacity-0 leading-relaxed" style={{ animationDelay: '0.7s' }}>
-            A passionate Software Developer focused on building clean, scalable, and user-centric web applications that make an impact. Specializing in frontend development using React.js, Next.js, and TailwindCSS, and expanding expertise into backend technologies like Java, Spring Boot, and RESTful APIs.
-          </p>
-          
-          <div className="flex flex-wrap gap-4 animate-slide-in-left opacity-0" style={{ animationDelay: '0.9s' }}>
-            <a href="#contact" className="btn-primary">
+          </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-2xl md:text-4xl font-heading font-semibold mb-6 leading-tight"
+          >
+            Backend Software Engineer crafting{' '}
+            <span className="gradient-text">robust, high-performance</span> systems.
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg text-muted-foreground max-w-2xl mb-10 leading-relaxed"
+          >
+            2+ years of experience in the Java ecosystem — building secure RESTful APIs with
+            Spring Boot, Spring MVC, and MySQL. Full-stack enthusiast leveraging Vue.js and
+            React.js to deliver complete end-to-end products.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-wrap gap-4"
+          >
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              href="#contact"
+              className="btn-primary"
+            >
               Let's Connect <ArrowRight size={18} />
-            </a>
-            <a href="#projects" className="px-6 py-3 border-2 border-theme-500 text-theme-500 rounded-md hover:bg-theme-500 hover:text-primary-foreground transition-all duration-300 font-medium">
-              View Projects
-            </a>
-          </div>
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              href="#projects"
+              className="btn-ghost"
+            >
+              View Work <Download size={16} />
+            </motion.a>
+          </motion.div>
         </div>
       </div>
     </section>

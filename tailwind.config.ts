@@ -77,8 +77,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				heading: ['Space Grotesk', 'sans-serif'],
+				sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+				heading: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

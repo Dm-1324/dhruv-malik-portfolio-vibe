@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Code2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const navLinks = [
@@ -31,8 +31,12 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#home" className="text-xl font-heading font-bold tracking-tight">
-          <span className="text-foreground">Dhruv</span>
+        <a
+          href="#home"
+          aria-label="Home"
+          className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 hover:bg-primary hover:text-primary-foreground transition-colors"
+        >
+          <Code2 size={18} />
         </a>
 
         <nav className="hidden md:flex items-center space-x-8">

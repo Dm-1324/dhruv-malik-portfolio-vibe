@@ -1,5 +1,6 @@
-
+import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
+import ScrollProgress from '../components/ScrollProgress';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Experience from '../components/Experience';
@@ -11,7 +12,14 @@ import Footer from '../components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      className="min-h-screen bg-background text-foreground"
+    >
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <About />
@@ -21,7 +29,7 @@ const Index = () => {
       <Education />
       <Contact />
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

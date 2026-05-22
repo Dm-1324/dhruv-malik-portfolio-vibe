@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import MagneticButton from './MagneticButton';
+import ParticleBackground from './ParticleBackground';
 
 const PHRASES = [
   'secure REST APIs',

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription } from 'vaul';
+import { Drawer } from 'vaul';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 type Category = 'Backend' | 'Frontend' | 'AI/ML';
@@ -147,32 +147,33 @@ const Projects = () => {
       </div>
 
       <Drawer.Root open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-        <DrawerContent className="fixed inset-x-0 bottom-0 z-[70] mt-24 flex h-auto max-h-[85vh] flex-col rounded-t-2xl border border-border bg-card text-card-foreground outline-none">
-          <div className="mx-auto mt-3 h-1.5 w-12 rounded-full bg-muted" />
-          <div className="overflow-y-auto p-8 max-w-3xl mx-auto w-full">
-            {active && (
-              <>
-                <DrawerHeader className="p-0 mb-4 text-left">
-                  <DrawerTitle className="text-3xl font-heading font-bold">{active.title}</DrawerTitle>
-                  <DrawerDescription className="text-muted-foreground mt-2 text-base leading-relaxed">
+        <Drawer.Portal>
+          <Drawer.Overlay className="fixed inset-0 z-[65] bg-black/50 backdrop-blur-sm" />
+          <Drawer.Content className="fixed inset-x-0 bottom-0 z-[70] mt-24 flex h-auto max-h-[85vh] flex-col rounded-t-2xl border border-border bg-card text-card-foreground outline-none">
+            <div className="mx-auto mt-3 h-1.5 w-12 rounded-full bg-muted" />
+            <div className="overflow-y-auto p-8 max-w-3xl mx-auto w-full">
+              {active && (
+                <>
+                  <Drawer.Title className="text-3xl font-heading font-bold">{active.title}</Drawer.Title>
+                  <Drawer.Description className="text-muted-foreground mt-2 mb-4 text-base leading-relaxed">
                     {active.description}
-                  </DrawerDescription>
-                </DrawerHeader>
-                {active.achievement && (
-                  <p className="text-primary font-medium mb-5">✓ {active.achievement}</p>
-                )}
-                <p className="text-foreground/85 leading-relaxed mb-6">{active.details}</p>
-                <div className="flex flex-wrap gap-2 mb-2">
-                  {active.techStack.map((t) => (
-                    <span key={t} className="px-3 py-1.5 bg-muted rounded-lg text-xs font-medium">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-        </DrawerContent>
+                  </Drawer.Description>
+                  {active.achievement && (
+                    <p className="text-primary font-medium mb-5">✓ {active.achievement}</p>
+                  )}
+                  <p className="text-foreground/85 leading-relaxed mb-6">{active.details}</p>
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {active.techStack.map((t) => (
+                      <span key={t} className="px-3 py-1.5 bg-muted rounded-lg text-xs font-medium">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          </Drawer.Content>
+        </Drawer.Portal>
       </Drawer.Root>
     </section>
   );

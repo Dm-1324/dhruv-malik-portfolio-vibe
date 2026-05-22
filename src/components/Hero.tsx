@@ -85,7 +85,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-2xl md:text-4xl font-heading font-semibold mb-6 leading-tight"
+            className="text-2xl md:text-4xl font-heading font-semibold mb-6 leading-tight min-h-[90px] md:min-h-[100px]"
           >
             Backend Software Engineer crafting{' '}
             <span className="gradient-text">{typed}</span>

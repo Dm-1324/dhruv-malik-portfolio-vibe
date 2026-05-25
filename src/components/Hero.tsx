@@ -57,17 +57,8 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center pt-24 pb-24 overflow-hidden bg-aurora"
     >
-      <ParticleBackground />
+      <HeroAmbient />
 
-      <div
-        className="absolute inset-0 opacity-[0.04] dark:opacity-[0.07] pointer-events-none"
-        style={{
-          backgroundImage:
-            'linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)',
-          backgroundSize: '48px 48px',
-          zIndex: 1,
-        }}
-      />
 
       <div className="container mx-auto px-6 relative z-10">
         <div

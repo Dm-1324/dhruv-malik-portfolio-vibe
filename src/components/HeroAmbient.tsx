@@ -1,14 +1,18 @@
-import { useEffect, useRef } from 'react';
+import { memo, useEffect, useRef } from 'react';
 
-const HeroAmbient = () => {
+const HeroAmbient = memo(() => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    el.style.setProperty('--mx', '50%');
+    el.style.setProperty('--my', '50%');
+
     let raf = 0;
     const onMove = (e: MouseEvent) => {
       const rect = el.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       cancelAnimationFrame(raf);
@@ -17,16 +21,9 @@ const HeroAmbient = () => {
         el.style.setProperty('--my', `${y}%`);
       });
     };
-    const onLeave = () => {
-      el.style.setProperty('--mx', `50%`);
-      el.style.setProperty('--my', `50%`);
-    };
-    const parent = el.parentElement;
-    parent?.addEventListener('mousemove', onMove);
-    parent?.addEventListener('mouseleave', onLeave);
+    window.addEventListener('mousemove', onMove, { passive: true });
     return () => {
-      parent?.removeEventListener('mousemove', onMove);
-      parent?.removeEventListener('mouseleave', onLeave);
+      window.removeEventListener('mousemove', onMove);
       cancelAnimationFrame(raf);
     };
   }, []);
@@ -36,8 +33,8 @@ const HeroAmbient = () => {
       ref={ref}
       aria-hidden="true"
       className="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
-      style={{ ['--mx' as string]: '50%', ['--my' as string]: '50%' }}
     >
+
       {/* Ambient drifting orbs */}
       <div className="absolute -top-32 -left-32 h-[520px] w-[520px] rounded-full bg-primary/25 dark:bg-primary/30 blur-3xl animate-orb-a" />
       <div className="absolute top-1/3 -right-40 h-[600px] w-[600px] rounded-full bg-sky-400/20 dark:bg-cyan-400/25 blur-3xl animate-orb-b" />

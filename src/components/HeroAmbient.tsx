@@ -67,6 +67,7 @@ const HeroAmbient = memo(() => {
       />
     </div>
   );
-};
+});
+HeroAmbient.displayName = 'HeroAmbient';
 
 export default HeroAmbient;

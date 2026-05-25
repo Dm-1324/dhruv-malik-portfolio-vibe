@@ -70,8 +70,16 @@ const Hero = () => {
       />
 
       <div className="container mx-auto px-6 relative z-10">
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-1/2 -translate-y-1/2 mx-auto max-w-5xl h-[420px] pointer-events-none blur-3xl opacity-70 dark:opacity-60"
+          style={{
+            background:
+              'radial-gradient(ellipse at center, hsl(var(--background) / 0.85), hsl(var(--background) / 0.4) 45%, transparent 75%)',
+          }}
+        />
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto relative" style={{ textShadow: '0 2px 24px hsl(var(--background) / 0.6)' }}>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

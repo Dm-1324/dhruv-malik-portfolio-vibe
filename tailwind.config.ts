@@ -105,6 +105,18 @@ export default {
 				slideInFromRight: {
 					from: { opacity: '0', transform: 'translateX(20px)' },
 					to: { opacity: '1', transform: 'translateX(0)' }
+				},
+				'orb-a': {
+					'0%,100%': { transform: 'translate3d(0,0,0) scale(1)' },
+					'50%': { transform: 'translate3d(80px,60px,0) scale(1.1)' }
+				},
+				'orb-b': {
+					'0%,100%': { transform: 'translate3d(0,0,0) scale(1)' },
+					'50%': { transform: 'translate3d(-100px,40px,0) scale(1.15)' }
+				},
+				'orb-c': {
+					'0%,100%': { transform: 'translate3d(0,0,0) scale(1)' },
+					'50%': { transform: 'translate3d(60px,-70px,0) scale(0.95)' }
 				}
 			},
 			animation: {
@@ -112,7 +124,10 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fadeIn 0.5s ease-out forwards',
 				'slide-in-left': 'slideInFromLeft 0.5s ease-out forwards',
-				'slide-in-right': 'slideInFromRight 0.5s ease-out forwards'
+				'slide-in-right': 'slideInFromRight 0.5s ease-out forwards',
+				'orb-a': 'orb-a 22s ease-in-out infinite',
+				'orb-b': 'orb-b 28s ease-in-out infinite',
+				'orb-c': 'orb-c 32s ease-in-out infinite'
 			}
 		}
 	},
